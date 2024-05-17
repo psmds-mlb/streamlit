@@ -8,6 +8,10 @@ Original file is located at
 """
 
 import streamlit as st
+
+# Configure the page before anything else
+st.set_page_config(page_title="Cat & Dog Classifier", layout="wide")
+
 import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
@@ -20,8 +24,7 @@ def load_model():
 
 model = load_model()
 
-# Set up the page layout with an appealing title and introduction
-st.set_page_config(page_title="Cat & Dog Classifier", layout="wide")
+# Set up a visually appealing title and introduction
 st.title("Cat and Dog Image Classifier 🐱🐶")
 st.markdown("""
 Upload an image of a cat or dog, and the model will predict which category it belongs to.
