@@ -15,7 +15,7 @@ import numpy as np
 # Load the model with caching
 @st.cache(allow_output_mutation=True)
 def load_model():
-    model = tf.keras.models.load_model('final_model_ext2 (2).tflite')  # Correct path to your model
+    model = tf.keras.models.load_model('final_model_compressed.hdf5')  # Correct path to your model
     return model
 
 model = load_model()
