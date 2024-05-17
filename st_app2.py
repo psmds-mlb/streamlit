@@ -17,27 +17,27 @@ from PIL import Image, ImageOps
 import numpy as np
 
 # Color themes for aesthetics
-primaryColor = "#E694FF"  # Light Purple
-backgroundColor = "#f0f2f6"  # Light grey
-secondaryBackgroundColor = "#e0e0ef"  # Another shade of grey
+darkBlueColor = "#003366"  # Dark blue
+backgroundColor = "#E0FFFF"  # Light Cyan, complementary with dark blue
+secondaryBackgroundColor = "#F0FFFF"  # Azure, slightly darker shade of Light Cyan
 textColor = "#262730"  # Almost black
 font = "sans serif"
 
 st.markdown(f"""
 <style>
     .reportview-container {{
-        background: {backgroundColor}
+        background: {backgroundColor};
     }}
     .sidebar .sidebar-content {{
-        background: {secondaryBackgroundColor}
+        background: {secondaryBackgroundColor};
     }}
     h1, h2 {{
-        color: {primaryColor};
+        color: {darkBlueColor};
         text-align: center;
     }}
     .stButton > button {{
         color: {textColor};
-        border: 2px solid {primaryColor};
+        border: 2px solid {darkBlueColor};
         border-radius: 10px;
         font-size: 16px;
     }}
@@ -50,6 +50,7 @@ st.markdown(f"""
         color: {textColor};
         text-align: center;
         padding: 10px;
+        font-size: 18px;  /* Increased font size */
     }}
 </style>
 """, unsafe_allow_html=True)
