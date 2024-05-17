@@ -16,6 +16,44 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 
+# Color themes for aesthetics
+primaryColor = "#E694FF"  # Light Purple
+backgroundColor = "#f0f2f6"  # Light grey
+secondaryBackgroundColor = "#e0e0ef"  # Another shade of grey
+textColor = "#262730"  # Almost black
+font = "sans serif"
+
+st.markdown(f"""
+<style>
+    .reportview-container {{
+        background: {backgroundColor}
+    }}
+    .sidebar .sidebar-content {{
+        background: {secondaryBackgroundColor}
+    }}
+    h1, h2 {{
+        color: {primaryColor};
+        text-align: center;
+    }}
+    .stButton > button {{
+        color: {textColor};
+        border: 2px solid {primaryColor};
+        border-radius: 10px;
+        font-size: 16px;
+    }}
+    .footer {{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: {secondaryBackgroundColor};
+        color: {textColor};
+        text-align: center;
+        padding: 10px;
+    }}
+</style>
+""", unsafe_allow_html=True)
+
 # Load the model with caching
 @st.cache(allow_output_mutation=True)
 def load_model():
@@ -24,7 +62,10 @@ def load_model():
 
 model = load_model()
 
-# Set up a visually appealing title and introduction
+# Display course name and app title
+st.markdown("""
+## PSMDSSC 104-PSMDS001 - Advanced Data Science
+""")
 st.title("Cat and Dog Image Classifier 🐱🐶")
 st.markdown("""
 Upload an image of a cat or dog, and the model will predict which category it belongs to.
@@ -54,3 +95,6 @@ else:
     class_names = ['Dog', 'Cat']  # Maintain order as per training
     result = class_names[int(prediction[0][0] > 0.5)]
     st.success(f"This image most likely belongs to a {result}.")  # Formatted result text
+
+# Footer
+st.markdown('<div class="footer">Submitted by: BELEN, Marvin L.</div>', unsafe_allow_html=True)
