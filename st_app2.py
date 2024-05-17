@@ -16,38 +16,42 @@ import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 
-# Color themes for aesthetics
-darkBlueColor = "#003366"  # Dark blue
-backgroundColor = "#E0FFFF"  # Light Cyan, complementary with dark blue
-secondaryBackgroundColor = "#F0FFFF"  # Azure, slightly darker shade of Light Cyan
-textColor = "#262730"  # Almost black
+# New aesthetic color themes
+softBlueColor = "#5D93C4"  # Soft Blue
+lightGreyBackground = "#F5F5F5"  # Light Grey
+lightBlueBackground = "#D9E8F5"  # Light Blue
+textColor = "#333333"  # Dark Grey
 font = "sans serif"
 
 st.markdown(f"""
 <style>
     html, body, [data-testid="stAppViewContainer"] {{
-        background-color: {backgroundColor} !important;
+        background-color: {lightGreyBackground} !important;
+        color: {textColor};
+        font-family: {font};
     }}
     [data-testid="stSidebar"][data-testid="stSidebar"] .css-1d391kg {{
-        background-color: {secondaryBackgroundColor} !important;
+        background-color: {lightBlueBackground} !important;
     }}
     header, .css-1kyxreq {{
-        background: {secondaryBackgroundColor} !important;
+        background: {lightBlueBackground} !important;
     }}
     h1, h2 {{
-        color: {darkBlueColor} !important;
+        color: {softBlueColor} !important;
     }}
     .stButton > button {{
-        border: 2px solid {darkBlueColor};
+        border: 2px solid {softBlueColor};
         border-radius: 10px;
         font-size: 16px;
+        background-color: {softBlueColor};
+        color: white;
     }}
     .footer {{
         position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: {secondaryBackgroundColor};
+        background-color: {lightBlueBackground};
         color: {textColor};
         text-align: center;
         padding: 10px;
@@ -55,8 +59,6 @@ st.markdown(f"""
     }}
 </style>
 """, unsafe_allow_html=True)
-
-
 
 # Load the model with caching
 @st.cache(allow_output_mutation=True)
