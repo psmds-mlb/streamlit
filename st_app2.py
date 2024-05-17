@@ -20,14 +20,14 @@ import numpy as np
 softBlueColor = "#5D93C4"  # Soft Blue
 lightGreyBackground = "#F5F5F5"  # Light Grey
 lightBlueBackground = "#D9E8F5"  # Light Blue
-textColor = "#333333"  # Dark Grey
+darkTextColor = "#202020"  # Darker text for better readability
 font = "sans serif"
 
 st.markdown(f"""
 <style>
     html, body, [data-testid="stAppViewContainer"] {{
         background-color: {lightGreyBackground} !important;
-        color: {textColor};
+        color: {darkTextColor};
         font-family: {font};
     }}
     [data-testid="stSidebar"][data-testid="stSidebar"] .css-1d391kg {{
@@ -37,7 +37,7 @@ st.markdown(f"""
         background: {lightBlueBackground} !important;
     }}
     h1, h2 {{
-        color: {softBlueColor} !important;
+        color: {darkTextColor} !important;  /* Darker text for titles */
     }}
     .stButton > button {{
         border: 2px solid {softBlueColor};
@@ -52,7 +52,7 @@ st.markdown(f"""
         bottom: 0;
         width: 100%;
         background-color: {lightBlueBackground};
-        color: {textColor};
+        color: {darkTextColor};
         text-align: center;
         padding: 10px;
         font-size: 18px;  /* Increased font size */
@@ -96,7 +96,7 @@ if file is None:
     st.warning("Please upload an image file.")  # More contextual feedback for no file
 else:
     image = Image.open(file)
-    st.image(image, use_column_width=True, caption="Uploaded Image")
+    st.image(image, use_column_width=False, width=300)  # Smaller image width for better layout
     prediction = import_and_predict(image, model)
     class_names = ['Dog', 'Cat']  # Maintain order as per training
     result = class_names[int(prediction[0][0] > 0.5)]
