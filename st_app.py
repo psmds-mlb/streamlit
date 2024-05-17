@@ -13,7 +13,7 @@ from PIL import Image, ImageOps
 import numpy as np
 
 # Load the model with caching
-@st.cache(allow_output_mutation=True)
+@st.cache_data(allow_output_mutation=True)
 def load_model():
     model = tf.keras.models.load_model('final_model_compressed.hdf5')  # Correct path to your model
     return model
