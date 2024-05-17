@@ -25,18 +25,22 @@ font = "sans serif"
 
 st.markdown(f"""
 <style>
-    .reportview-container {{
-        background: {backgroundColor};
+    body {{
+        background-color: {backgroundColor};
+        color: {textColor};
+        font-family: {font};
+    }}
+    .reportview-container .main .block-container{{
+        background-color: {backgroundColor};
+        padding: 2rem;
     }}
     .sidebar .sidebar-content {{
-        background: {secondaryBackgroundColor};
+        background-color: {secondaryBackgroundColor};
     }}
     h1, h2 {{
         color: {darkBlueColor};
-        text-align: center;
     }}
     .stButton > button {{
-        color: {textColor};
         border: 2px solid {darkBlueColor};
         border-radius: 10px;
         font-size: 16px;
