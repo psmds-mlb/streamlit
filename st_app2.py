@@ -25,14 +25,17 @@ font = "sans serif"
 
 st.markdown(f"""
 <style>
-    html, body, .reportview-container .main {{
+    html, body, [data-testid="stAppViewContainer"] {{
         background-color: {backgroundColor} !important;
     }}
-    .sidebar .sidebar-content {{
+    [data-testid="stSidebar"][data-testid="stSidebar"] .css-1d391kg {{
         background-color: {secondaryBackgroundColor} !important;
     }}
+    header, .css-1kyxreq {{
+        background: {secondaryBackgroundColor} !important;
+    }}
     h1, h2 {{
-        color: {darkBlueColor};
+        color: {darkBlueColor} !important;
     }}
     .stButton > button {{
         border: 2px solid {darkBlueColor};
@@ -52,6 +55,7 @@ st.markdown(f"""
     }}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # Load the model with caching
