@@ -13,7 +13,7 @@ from PIL import Image, ImageOps
 import numpy as np
 
 # Load the model with caching
-@st.cache_data(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def load_model():
     model = tf.keras.models.load_model('final_model_compressed.hdf5')  # Correct path to your model
     return model
@@ -33,7 +33,7 @@ file = st.file_uploader("Choose an image...", type=["jpg", "png"])
 def import_and_predict(image_data, model):
     # Resize and rescale the image
     size = (150, 150)  # Same as during training
-    image = ImageOps.fit(image_data, size, Image.ANTIALIAS)
+    image = ImageOps.fit(image_data, size, Image.Resampling.LANCZOS)  # Updated from Image.ANTIALIAS
     img = np.asarray(image)
     img_rescaled = img / 255.0  # Rescale as in training
     img_reshape = img_rescaled[np.newaxis, ...]  # Add batch dimension
